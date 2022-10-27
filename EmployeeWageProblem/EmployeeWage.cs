@@ -18,20 +18,17 @@ namespace EmployeeWageProblem
         {
             int dailyEmpWage = 0,empHrs = 0;
             int empCheck = random.Next(0, 3);
-            if (empCheck == IS_FULL_TIME)
+            switch(empCheck)
             {
-                empHrs = FULL_DAY_HR;
-                Console.WriteLine("Employee is present for full Day");
-            }
-            else if (empCheck == IS_PART_TIME)
-            {
-                empHrs = HALF_DAY_HR;
-                Console.WriteLine("Employee is present for Half Day");
-            }
-            else
-            {
-                empHrs = 0;
-                Console.WriteLine("Employee is Absent");
+                case IS_FULL_TIME:
+                    empHrs = FULL_DAY_HR;
+                    break;
+                case IS_PART_TIME:
+                    empHrs = HALF_DAY_HR;
+                    break;
+                default:
+                    empHrs = 0;
+                    break;
             }
             dailyEmpWage = WAGE_PER_HR * empHrs;
             Console.WriteLine("Daily Employee Wage is: "  + dailyEmpWage);
